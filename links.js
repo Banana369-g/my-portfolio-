@@ -5,7 +5,7 @@
 window.LINKS = {
   github:    "https://github.com/Banana369-g",   // e.g. "https://github.com/your-username"  or  "your-username"
   linkedin:  "",   // e.g. "https://www.linkedin.com/in/your-name"
-  instagram: "",   // e.g. "https://www.instagram.com/your-name"
+  instagram: "https://www.facebook.com/yukeshthapa36",   // e.g. "https://www.instagram.com/your-name"
   facebook:  "https://www.facebook.com/yukeshthapa36",   // e.g. "https://www.facebook.com/your-name"
   x:         "",   // e.g. "https://x.com/your-name"
   youtube:   "",   // e.g. "https://www.youtube.com/@your-channel"
