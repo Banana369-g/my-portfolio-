@@ -1,7 +1,3 @@
-// Portfolio script: project cards, the project viewer (preview + code),
-// and edit mode (index.html?edit) for uploading a photo and projects.
-// Uploads are kept in this browser's IndexedDB; projects in the "projects"
-// folder come from projects-data.js (made by build-projects.ps1).
 (function () {
   'use strict';
 
@@ -11,7 +7,6 @@
   let uploaded = [];
   let all = [];
 
-  // ---------- small helpers ----------
   const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
   const both = (en, ja) => `<span lang="en">${en}</span><span lang="ja">${ja}</span>`;
   const isHtml = (path) => /\.html?$/i.test(path);
@@ -19,7 +14,6 @@
   const findFile = (p, path) => p.files.find((f) => f.path.toLowerCase() === path.toLowerCase());
   const folderUrl = (p, path) => 'projects/' + [p.folder].concat(path.split('/')).map(encodeURIComponent).join('/');
 
-  // ---------- storage (IndexedDB) ----------
   const db = new Promise((resolve, reject) => {
     const req = indexedDB.open('portfolio', 1);
     req.onupgradeneeded = () => {
@@ -38,7 +32,6 @@
     }));
   }
 
-  // ---------- social links (from links.js) ----------
   const links = window.LINKS || {};
   document.querySelectorAll('a[data-link]').forEach((a) => {
     let url = (links[a.dataset.link] || '').trim();
@@ -48,7 +41,6 @@
     a.href = url;
   });
 
-  // ---------- on scroll: back to top button, header background, progress bar ----------
   const toTop = $('#to-top');
   const header = $('.top');
   const progress = $('#progress');
@@ -62,8 +54,6 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
-  // ---------- fade sections in as they come into view ----------
-  // Items next to each other appear one after another (--d is the delay).
   const reveals = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window) {
     const seen = new IntersectionObserver((entries) => {
@@ -75,7 +65,6 @@
     }, { rootMargin: '0px 0px -8% 0px' });
     reveals.forEach((el) => seen.observe(el));
 
-    // highlight the menu link of the section on screen
     const navLinks = document.querySelectorAll('nav a');
     const spy = new IntersectionObserver((entries) => {
       entries.forEach((en) => {
@@ -88,7 +77,6 @@
     reveals.forEach((el) => el.classList.add('in'));
   }
 
-  // ---------- soft light on cards that follows the mouse ----------
   document.addEventListener('pointermove', (e) => {
     const c = e.target.closest && e.target.closest('.glass');
     if (!c) return;
@@ -97,7 +85,6 @@
     c.style.setProperty('--my', (e.clientY - r.top) + 'px');
   }, { passive: true });
 
-  // ---------- profile photo ----------
   const photo = $('#photo');
   const defaultPhoto = photo.getAttribute('src');
   store('settings', 'readonly', (s) => s.get('photo')).then((url) => { if (url) photo.src = url; }).catch(() => {});
@@ -111,7 +98,6 @@
     });
   }
 
-  // Crop the middle square and shrink it to 600x600 so it loads fast.
   async function squarePhoto(file) {
     const img = new Image();
     img.src = await fileToDataUrl(file);
@@ -123,7 +109,6 @@
     return canvas.toDataURL('image/jpeg', 0.88);
   }
 
-  // ---------- project cards ----------
   const grid = $('#project-grid');
 
   function thumb(p) {
@@ -133,7 +118,6 @@
     return `<iframe srcdoc="${esc(buildPage(p, p.entry))}" sandbox="" scrolling="no" loading="lazy" tabindex="-1" aria-hidden="true"></iframe>`;
   }
 
-  // "java" if the tech list mentions Java, otherwise "web"
   const kindOf = (p) => ((p.tech || []).some((t) => /^java$/i.test(t)) ? 'java' : 'web');
 
   function card(p, i) {
@@ -166,8 +150,6 @@
     updateCounts();
   }
 
-  // ---------- project filter (All / Java / Web) ----------
-  // Cards are only hidden, not rebuilt, so the preview thumbnails don't reload.
   let filter = 'all';
   const filters = $('#filters');
 
@@ -186,7 +168,6 @@
     grid.querySelectorAll('.project').forEach((c) => { c.hidden = filter !== 'all' && c.dataset.kind !== filter; });
   });
 
-  // Re-render only when something changed, so the preview thumbnails don't reload for nothing.
   function loadUploads() {
     const before = uploaded.length;
     return store('projects', 'readonly', (s) => s.getAll())
@@ -205,10 +186,6 @@
     }
   });
 
-  // ---------- previews of uploaded projects ----------
-  // An uploaded project only exists inside this page, so its HTML is rebuilt
-  // with every local file (CSS, images, scripts) turned into a data: URL.
-  // Links to its other pages send a message back here to switch pages.
   const MIME = { html: 'text/html', htm: 'text/html', css: 'text/css', js: 'text/javascript', json: 'application/json', svg: 'image/svg+xml' };
   const isLocal = (ref) => ref && !/^([a-z][a-z0-9+.-]*:|\/\/|#)/i.test(ref.trim());
 
@@ -249,7 +226,6 @@
       'if(a){e.preventDefault();parent.postMessage({portfolioPage:decodeURIComponent(a.getAttribute("href").slice(8))},"*");}});<\/script>';
   }
 
-  // ---------- project viewer ----------
   const viewer = $('#viewer');
   const frame = $('#viewer-frame');
   const pagesEl = $('#viewer-pages');
@@ -347,10 +323,8 @@
     setTimeout(() => { btn.innerHTML = old; }, 1500);
   });
 
-  // Close buttons inside any dialog
   document.querySelectorAll('dialog [data-close]').forEach((b) => b.addEventListener('click', () => b.closest('dialog').close()));
 
-  // ---------- edit mode ----------
   if (editing) {
     $('#editbar').hidden = false;
 
@@ -392,9 +366,8 @@
       pending = [];
       skipped = 0;
       for (const f of list) {
-        // "MySite/css/style.css" -> "css/style.css"
         const path = f.webkitRelativePath ? f.webkitRelativePath.split('/').slice(1).join('/') : f.name;
-        if (path.split('/').some((part) => part.startsWith('.'))) continue; // .vscode, .git, ...
+        if (path.split('/').some((part) => part.startsWith('.'))) continue;
         if (f.size > MAX) { skipped++; continue; }
         if (CODE.test(path)) pending.push({ path, kind: 'code', text: await f.text() });
         else if (IMAGE.test(path)) pending.push({ path, kind: 'image', data: await fileToDataUrl(f) });

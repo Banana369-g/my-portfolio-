@@ -1,11 +1,3 @@
-# Run this every time you add or change something in the "projects" folder:
-#   right-click this file > "Run with PowerShell"
-# It reads every project folder and writes projects-data.js,
-# which the portfolio uses to show your projects and their code.
-#
-# Each project folder can have a project.json like this (all fields optional):
-#   { "title": "...", "description": "...", "tech": ["HTML","CSS"], "entry": "index.html", "order": 1 }
-
 $root = $PSScriptRoot
 $codeTypes = @(".html", ".htm", ".css", ".js", ".json", ".txt", ".md", ".java", ".sql", ".py")
 $imageTypes = @(".png", ".jpg", ".jpeg", ".gif", ".webp", ".svg", ".avif")
