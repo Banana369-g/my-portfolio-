@@ -1,0 +1,100 @@
+:root{
+      --bg:#0f172a;
+      --panel:#111827;
+      --panel2:#1f2937;
+      --text:#e5e7eb;
+      --muted:#9ca3af;
+      --accent:#38bdf8;
+      --accent2:#a78bfa;
+      --card:#0b1220;
+      --line:rgba(255,255,255,.08);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:linear-gradient(180deg,#081120 0%, #0f172a 100%);
+      color:var(--text);
+      line-height:1.6;
+    }
+    a{color:inherit; text-decoration:none}
+    .container{width:min(1100px,92%);
+       margin:0 auto}
+    .nav{
+      position:sticky; 
+      top:0;
+       z-index:10;
+      background:rgba(15,23,42,.85); 
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--line);
+    }
+    .nav-inner{display:flex; align-items:center;
+       justify-content:space-between; 
+       padding:14px 0}
+    .logo{font-weight:700; 
+      letter-spacing:.5px}
+    .nav-links{display:flex; gap:18px; 
+      flex-wrap:wrap; 
+      font-size:.95rem; 
+      color:var(--muted)}
+    .nav-links a:hover{
+      color:#fff
+    }
+    .hero{padding:70px 0 40px}
+    .hero-grid{display:grid;
+       grid-template-columns:1.2fr .8fr; 
+       gap:28px; 
+       align-items:center}
+    .badge{display:inline-block; padding:8px 14px; border-radius:999px; background:rgba(56,189,248,.12); color:#7dd3fc; border:1px solid rgba(56,189,248,.25); margin-bottom:18px}
+    h1{font-size:clamp(2.4rem,5vw,4.5rem); line-height:1.05; margin:0 0 14px}
+    .lead{color:var(--muted); max-width:620px; font-size:1.05rem}
+    .hero-card{
+      background:linear-gradient(180deg, rgba(17,24,39,.95), rgba(15,23,42,.95));
+      border:1px solid var(--line); border-radius:24px; padding:24px;
+      box-shadow:0 20px 60px rgba(0,0,0,.25);
+    }
+    .profile{
+      display:flex; flex-direction:column; align-items:center; text-align:center; gap:14px;
+    }
+    .avatar{
+      width:140px; height:140px; border-radius:50%;
+      background:linear-gradient(135deg,var(--accent),var(--accent2));
+      display:grid; place-items:center; font-size:3rem; font-weight:700; color:#fff;
+      box-shadow:0 0 0 8px rgba(255,255,255,.04);
+    }
+    .btns{display:flex; gap:12px; flex-wrap:wrap; margin-top:22px}
+    .btn{padding:12px 18px; border-radius:12px; border:1px solid var(--line); background:rgba(255,255,255,.04)}
+    .btn.primary{background:linear-gradient(135deg,var(--accent),var(--accent2)); color:#fff; border:none}
+    section{padding:30px 0}
+    .section-title{font-size:1.7rem; margin:0 0 18px}
+    .grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
+    .card{
+      background:rgba(17,24,39,.88); border:1px solid var(--line); border-radius:20px; padding:22px;
+    }
+    .two-col{display:grid; grid-template-columns:1fr 1fr; gap:18px}
+    .skill{margin-bottom:14px}
+    .skill-row{display:flex; justify-content:space-between; margin-bottom:6px; color:#dbeafe}
+    .bar{height:10px; border-radius:999px; background:#172036; overflow:hidden}
+    .bar > span{display:block; height:100%; border-radius:999px; background:linear-gradient(90deg,var(--accent),var(--accent2))}
+    .tags{display:flex; flex-wrap:wrap; gap:10px}
+    .tag{padding:8px 12px; border-radius:999px; background:rgba(255,255,255,.05); border:1px solid var(--line); color:var(--muted)}
+    .timeline{position:relative; padding-left:22px}
+    .timeline:before{content:''; position:absolute; left:8px; top:4px; bottom:4px; width:2px; background:rgba(255,255,255,.12)}
+    .item{position:relative; padding:0 0 18px}
+    .item:before{content:''; position:absolute; left:-18px; top:7px; width:14px; height:14px; border-radius:50%; background:var(--accent)}
+    .footer{padding:30px 0 40px; color:var(--muted); text-align:center}
+    .small{color:var(--muted); font-size:.95rem}
+    @media (max-width: 860px){
+      .hero-grid,.grid,.two-col{grid-template-columns:1fr}
+      .nav-inner{flex-direction:column; gap:12px}
+    }
+    .avatar-img{
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #ffffff;
+
+    }
+    

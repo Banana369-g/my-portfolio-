@@ -1,0 +1,12 @@
+{
+    "title":  "Battle Game \u0026 Bank Tracker",
+    "description":  "Team project: two Java console apps. A turn-based battle game with random critical hits, bets and sound effects, and a bank tracker that saves accounts to a CSV file and logs support tickets. Playable here in a browser port.",
+    "tech":  [
+                 "Java",
+                 "OOP",
+                 "File I/O",
+                 "Team project"
+             ],
+    "entry":  "index.html",
+    "order":  1
+}

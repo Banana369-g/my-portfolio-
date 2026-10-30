@@ -1,0 +1,10 @@
+{
+    "title":  "Java Classes \u0026 Objects",
+    "description":  "Lesson 09 exercises on object-oriented basics: constructors, this, private fields with getters and setters, and composition (a Car that has an Engine). Click a class to run it.",
+    "tech":  [
+                 "Java",
+                 "OOP"
+             ],
+    "entry":  "index.html",
+    "order":  2
+}

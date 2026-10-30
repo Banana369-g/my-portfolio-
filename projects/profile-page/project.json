@@ -1,0 +1,10 @@
+{
+    "title":  "Profile Page",
+    "description":  "A longer profile page introducing my Java team projects (a battle game and rock-paper-scissors), skills, and hobbies.",
+    "tech":  [
+                 "HTML",
+                 "CSS"
+             ],
+    "entry":  "index.html",
+    "order":  4
+}

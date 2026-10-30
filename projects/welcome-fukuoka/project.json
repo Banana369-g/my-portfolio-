@@ -1,0 +1,10 @@
+{
+    "title":  "Welcome to Fukuoka",
+    "description":  "A guide to Fukuoka with a weather widget and places to visit, like Dazaifu and Ichiran.",
+    "tech":  [
+                 "HTML",
+                 "CSS"
+             ],
+    "entry":  "page1.html",
+    "order":  7
+}

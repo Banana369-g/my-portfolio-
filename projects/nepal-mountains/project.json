@@ -1,0 +1,10 @@
+{
+    "title":  "Mountains of Nepal",
+    "description":  "A four-page site (Home, About, Gallery, Links) about Nepal\u0027s mountains, built on a beginner template.",
+    "tech":  [
+                 "HTML",
+                 "CSS"
+             ],
+    "entry":  "index.html",
+    "order":  6
+}

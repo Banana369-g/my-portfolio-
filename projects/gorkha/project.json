@@ -1,0 +1,9 @@
+{
+    "title":  "Gorkha, My Birthplace",
+    "description":  "A page about Gorkha and Manakamana in Nepal, with photos, Google Maps, and YouTube embeds.",
+    "tech":  [
+                 "HTML"
+             ],
+    "entry":  "page01.html",
+    "order":  8
+}

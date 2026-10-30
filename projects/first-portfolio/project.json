@@ -1,0 +1,11 @@
+{
+    "title":  "My First Portfolio",
+    "description":  "My first portfolio site: a dark one-page design with a profile hero, skills, my Java projects with their code in tabs, favorites and contact links. Built with HTML, CSS and a little JavaScript.",
+    "tech":  [
+                 "HTML",
+                 "CSS",
+                 "JavaScript"
+             ],
+    "entry":  "index.html",
+    "order":  3
+}

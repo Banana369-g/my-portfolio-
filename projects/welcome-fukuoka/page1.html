@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+      h1 {
+        color:rgb(6, 110, 0);
+        font: size 100px;
+        background-image: url(https://www.shutterstock.com/ja/image-vector/this-peaceful-cartoon-vector-landscape-features-2615092989?trackingId=1e7f8687-5be4-4f8b-b759-0e49201998e8&listId=searchResults);
+        text-align: center;
+        letter-spacing: 20px;
+        text-shadow:2px 2px 15px rgb(5, 51, 19);
+        box-shadow: 2px 2px 9px;
+      }
+      header {
+        background-color: aquamarine;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      html,body{
+        margin: 0;
+        padding:0 ;
+        width: 100%;
+        height: 100vh;
+        overflow: auto; /* Prevents scrollbars */
+        font-family: 'Arial', sans-serif;
+
+    }
+     body{
+      background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    
+    /* Linking the animation we defined below */
+    animation: gradientMove 15s ease infinite;
+     }
+
+/* 3. Styling the text so it's readable */
+.welcome-text {
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(78, 0, 0, 0.3);
+}
+
+/* 4. Defining the Animation Rules */
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+ 
+}
+.nav {
+  margin: 30px;
+}
+.dick {
+  position: relative;
+  width: 200px;
+  height: 120px;
+  margin: 100px auto;
+
+}
+.card {
+  position: absolute;
+  width: 150px;
+  height: 100px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: white;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+}
+.c1 {background: #e74c3c; transform: rotate(-20eg) translate(-60px, 10px);}
+.c2 {background: #ee7752; transform: rotate(-10eg) translate(-30px, 5px);}
+.c3 {background: #0d7d3f; transform: rotate(0deg);}
+.c4 {background: #e74c3c; transform: rotate(10eg) translate(30px, 5px);}
+.c5 {background: #5d38d8; transform: rotate(20eg) translate(60px, 10px);}
+
+    </style>
+</head>
+
+<body>
+    <a class="weatherwidget-io" href="https://forecast7.com/en/33d59130d40/fukuoka/" data-label_1="FUKUOKA" data-label_2="WEATHER" data-theme="original" >FUKUOKA WEATHER</a>
+<script>
+!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+</script>
+<header class="topbar">
+    <div class="logo" id="sample1"> FUKUOKA NOW </div>
+    <nav class="menu">
+        <a href="https://gofukuoka.jp/">Guide</a>
+        <a href="https://www.fukuoka-now.com/">Local News</a>
+        <a href="https://www.japan.travel/en/see-and-do/festivals-and-events/">Events</a>
+        <a href="https://www.fukuoka-now.com/en/virtual-tours/">Video</a>
+    </nav>
+</header>
+
+ <div class="deck">
+        
+        <div class="card c1" style="z-index: 1;">project A</div>
+        <div class="card c2" style="z-index: 2;">project B</div>
+        <div class="card c3" style="z-index: 3;">project C</div>
+        <div class="card c4" style="z-index: 2;">project D</div>
+        <div class="card c5" style="z-index: 1;">project E</div>
+    </div>
+    <h1 align="center" > WELL COME TO  FUKOUKA JAPAN</h1>
+   <h1  align="center"><img height="500px" src="https://res.klook.com/image/upload/fl_lossy.progressive,q_60/v1755071695/destination/e4gibxvp1lvtkmfzxgqx.jpg">
+   </h1>
+   <p>福岡は九州の経済と文化の中心地であり、豊かな自然と都市機能が調和した魅力的な街です。博多ラーメンやもつ鍋などの絶品グルメが有名で、中洲の屋台文化も人気です。海や山に近く、空港から市街地へのアクセスも抜群です。 
+
+歴史ある櫛田神社やショッピングに便利なキャナルシティ博多など、見どころが満載です。
+</p>
+    
+    <hr>
+
+     <ul>
+    <li><a href="https://google.com"    target="_blank">Google</a></li>
+    <li><a href="https://youtube.com"   target="_blank">YouTube</a></li>
+    <li><a href="https://wikipedia.org" target="_blank">Wikipedia</a></li>
+    <li><a href="mailto:test@email.com">Send Email</a></li>
+    <li><a href="tel:+1234567890">Call Us</a></li>
+    <li><a href="#bottom">Jump to Bottom</a></li>
+  </ul>
+  <hr>
+  <!-- ===== TABLE WITH IMAGES ===== -->
+  <table border="1" cellpadding="8" cellspacing="0">
+    <tr>
+      <th>Photo</th>
+      <th>Name</th>
+      <th>Link</th>
+    </tr>
+    <tr>
+      <td><img height="100px" src="https://static.gltjp.com/glt/data/article/21000/20547/20231212_115902_f1088359_w1920.webp" alt="Person 1" /></td>
+      <td>Hakata Station</td>
+      <td><a href="https://www.japan.travel/en/spot/2173/" target="_blank">Visit</a></td>
+    </tr>
+    <tr>
+      <td><img height="100px" src="https://japanjourneys.jp/wp-content/uploads/2020/12/fukuoka-dazaifu-temple-11-1024x681.jpg" alt="Person 2" /></td>
+      <td>Dazaifu</td>
+      <td><a href="https://www.dazaifutenmangu.or.jp/" target="_blank">Visit</a></td>
+    </tr>
+    <tr>
+      <td><img height="100px" src="https://images.squarespace-cdn.com/content/v1/5cf7ddba98c8ee000167e0a5/1592312364247-2MJ0PGD8WTJ6UVFOXRP3/Ichiran-Main-Store-14.jpg" alt="Person 3" /></td>
+      <td>ichiran ramen shop Hakata</td>
+      <td><a href="https://ichiran.com/shop/kyushu/hakata/" target="_blank">Visit</a></td>
+    </tr>
+  </table>
+
+
+  <!-- ===== BOTTOM ANCHOR ===== -->
+  <ul id="bottom">
+    <li><a href="#">Back to Top</a></li>
+    <li><a href="https://google.com" target="_blank">Google</a></li>
+  </ul>
+
+</body>
+</html>
+

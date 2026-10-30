@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>My portfolio Project</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="ここにサイト説明を入れます">
+<meta name="keywords" content="キーワード１,キーワード２,キーワード３,キーワード４,キーワード５">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/profile.css">
+<link rel="icon" href="My image/insta.avif">
+<script src="js/fixmenu_pagetop.js"></script>
+</head>
+
+<body>
+	<img style="backface-visibility: visible;"   src="">
+<header>
+
+<h1 class="base" style="background-color: aquamarine;"></h1>
+<h1>My portfolio Project Sample Gallery</h1>
+
+
+</header>
+
+
+<h1 align="center" style="background-color: rgb(104, 193, 163);" style="color: rgb(153, 19, 19);">About MY Self </h1>
+<div class="about-text">
+	<body>
+		<section class="intro">
+			<nav class="navbar">
+				<a href="">Home</a>
+				<a href="">About</a>
+				<a href="">Skill</a>
+				<a href="">Project</a>
+				<a href="">contact</a>
+			</nav>
+		
+<div class="hero-profile"> 
+	<div class="hero-text">
+		<P class="intro"><b>Hi, I'm</b><span><b> YUKESH THAPA </span></b></P>
+		<h1><b><i>SYSTEM ENGINEER </i></b></h1>
+		<p class="discription">私の名前はタパユケシュです。私は今愛和システムエンジニア学校でIT学科が学んでいます。小学校の時からコンピューターの学科勉強したくってその時学校にもコンピューター学科がなくって勉強できなかった。
+	初めて高校でコンピューター学科選んで勉強始めました。その時初めてプログラミング言語勉強してプログラミングに気になりました。
+	その事今後勉強したいと思って今愛和システムエンジニア学校で(HTML,Java,CSS)とかのプログラミング言語勉強しています。
+	今の勉強は楽しくしています。しかしこれからもプログラミング成長していきたいます。</p>
+	</div>
+
+	<div class="hero-image">
+		<div class="glow"></div>
+		<img src="My image/IMG_20260314_100650.jpg"
+		alt="profile picture"/>
+	
+	</div>
+</div>
+</section>
+<h1 align="center" style="background-color: rgb(104, 203, 170);" style="color: brown;">チームプロジェクトまたチーム経験</h1>
+<ul style="display: flex; flex-wrap: wrap; list-style: none; padding: 0; gap: 30px;">
+	<h1 style="color: tomato;"><b>JAVA PROJECT (BATTLE GAME)</b></h1>
+<pre><code>import java.io.FileInputStream;
+import java.util.Random;
+import java.util.Scanner;
+
+import javazoom.jl.player.Player;
+
+public class Project1 {
+
+	static final int MAX_HP = 100;
+	static final int MAX_HEAL = 3;
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		Random r = new Random();
+
+		int[] hp = { MAX_HP, MAX_HP };
+		boolean[] defending = { false, false };
+		int[] healcount = { 0, 0 };
+		String[] p = new String[2];
+
+		int current = 0;
+
+		// Player names
+		System.out.print("Enter Player 1 Name: ");
+		p[0] = sc.nextLine();
+		playSound("rizz-sound-effect.mp3");
+
+		System.out.print("Enter Player 2 Name: ");
+		p[1] = sc.nextLine();
+		playSound("rizz-sound-effect.mp3");
+
+		int total = getBet(sc, p[0]) + getBet(sc, p[1]);
+
+		while (hp[0] > 0 && hp[1] > 0) {
+			int opponent = 1 - current;
+
+			displayStatus(p, hp, defending, healcount);
+
+			System.out.println("\n" + p[current] + "'s Turn");
+			System.out.println("1. Attack  2. Defend  3. Heal");
+
+			int choice = sc.nextInt();
+
+			switch (choice) {
+			case 1:
+				attack(r, p, hp, defending, current, opponent);
+				break;
+
+			case 2:
+				defending[current] = true;
+				System.out.println(p[current] + " is defending!");
+				break;
+
+			case 3:
+				heal(r, p, hp, healcount, current);
+				break;
+
+			default:
+				System.out.println("Invalid choice!");
+				playSound("vine-boom.mp3");
+				continue;
+			}
+
+			if (hp[opponent] <= 0)
+				break;
+
+			current = opponent;
+		}
+
+		System.out.println("\n===== GAME OVER =====");
+		if (hp[0] <= 0) {
+			System.out.println(p[1] + " Wins!");
+		} else {
+			System.out.println(p[0] + " Wins!");
+		}
+		playSound("rizz-sound-effect.mp3");
+		System.out.println("CONGRALUTIONS YOU WIN ￥" + total);
+
+	}
+
+	static void attack(Random r, String[] p, int[] hp, boolean[] defending, int current, int opponent) {
+		int damage = r.nextInt(11) + 10;
+		if ((r.nextInt(2) == 0)) {
+			playSound("重いキック1.mp3");
+		} else {
+			playSound("punch-gaming-sound-effect-hd_RzlG1GE.mp3");
+		}
+
+		if (r.nextInt(100) < 20) {
+			damage *= 2;
+			System.out.println("🔥 CRITICAL HIT!");
+			playSound("bone-crack.mp3");
+		}
+
+		if (defending[opponent]) {
+			damage /= 2;
+			defending[opponent] = false;
+			playSound("rizz-sound-effect.mp3");
+		}
+
+		hp[opponent] -= damage;
+		System.out.println(p[current] + " attacked for " + damage + " damage!");
+	}
+
+	static void heal(Random r, String[] p, int[] hp, int[] healcount, int current) {
+		if (healcount[current] >= MAX_HEAL) {
+			System.out.println("❌ No heals left!");
+			playSound("fahhhhhhhhhhhhhh.mp3");
+			return;
+		}
+
+		int heal = r.nextInt(20) + 5;
+		hp[current] = Math.min(MAX_HP, hp[current] + heal);
+		healcount[current]++;
+
+		playSound("anime-wow-sound-effect.mp3");
+		System.out.println(p[current] + " healed " + heal + " HP!");
+	}
+
+	static int getBet(Scanner sc, String player) {
+		System.out.print(player + ", enter your bet: ");
+		int bet = sc.nextInt();
+
+		if (bet < 1000) {
+			playSound("999-social-credit-siren.mp3");
+		} else {
+			playSound("anime-wow-sound-effect.mp3");
+		}
+
+		return bet;
+	}
+
+	static void displayStatus(String[] p, int[] hp, boolean[] defending, int[] healcount) {
+		for (int i = 0; i < 2; i++) {
+			System.out.println(p[i] + " HP: " + hp[i] +
+					(defending[i] ? " (Defending)" : "") +
+					" | Heals left: " + (MAX_HEAL - healcount[i]));
+		}
+	}
+
+	static void playSound(String fileName) {
+		try {
+			FileInputStream file = new FileInputStream(fileName);
+			Player sound = new Player(file);
+			sound.play();
+		} catch (Exception e) {
+			System.out.println("⚠ Sound error: " + fileName);
+		}
+	}
+}</code></pre>
+<h1 style="color: tomato;"><b>｛じゃんけんゲーム｝</b></h1>
+<pre><code>import java.util.Random;
+import java.util.Scanner;
+
+public class Test29 {
+
+	public static void main(String[] args) throws Exception {
+		Scanner scan = new Scanner(System.in);
+		Random r = new Random();
+
+		System.out.println("✌️✊🖐️");
+		int money = 100000;
+		int win = 0;
+		int loss = 0;
+
+		System.out.println("money " + money);
+
+		while (true) {
+			System.out.println(" how much do you want to beat");
+			int bet = scan.nextInt();
+			if (bet >= money) {
+				System.out.println("insufficient balance");
+				break;
+			}
+
+			System.out.println("1:🖐️2:✌️3:✊");
+			int num = scan.nextInt();
+			int cpu = r.nextInt(3) + 1;
+
+			for (int i = 1; i <= 5; i++) {
+				System.out.print("°");
+				new Thread().sleep(500);
+			}
+			if (money == 0) {
+				System.out.println("you don't have enough money !!!!!!");
+				break;
+			}
+			if (num == 1 && cpu == 1) {
+				System.out.println(" draw !! you :🖐️ cpu : 🖐️ !!");
+			} else if (num == 1 && cpu == 2) {
+				System.out.println("you loss !! you : :🖐️ cpu :✌️ !!");
+				money -= bet;
+				loss++;
+			} else if (num == 1 && cpu == 3) {
+				System.out.println(" you win !! you:🖐️ cpu :✊");
+				money += bet * 3;
+				win++;
+
+			} else if (num == 2 && cpu == 1) {
+				System.out.println("you win !! you :✌️ cpu : 🖐️ !!");
+				money += bet * 3;
+				win++;
+
+			} else if (num == 2 && cpu == 2) {
+				System.out.println("draw !! you :✌️ cpu :✌️ !!");
+
+			} else if (num == 2 && cpu == 3) {
+				System.out.println(" you loss !! you:✌️ cpu :✊");
+				money -= bet;
+				loss++;
+			} else if (num == 3 && cpu == 1) {
+				System.out.println("you loss !! you :✊ cpu : 🖐️ !!");
+				money -= bet;
+				loss++;
+			} else if (num == 3 && cpu == 2) {
+				System.out.println("you win  !! you : :✊ cpu :✌️ !!");
+				money += bet * 3;
+				win++;
+
+			} else if (num == 3 && cpu == 3) {
+				System.out.println("draw you :✊ cpu : ✊ !!");
+			}
+
+			System.out.println("total amount =" + money);
+
+			System.out.println("1:try again 2: stop");
+			if (scan.nextInt() == 2) {
+				System.out.println("Thank you !!");
+				break;
+			}
+			System.out.println("you win " + win + "times");
+			System.out.println("you loss " + loss + "times");
+		}
+
+	}
+}
+</code></pre>
+</ul>
+<h1 align="center" style="background-color: rgb(104, 203, 170);" style="color: brown;"><b>私の技量</b> </h1>
+<ol>
+	<li>5個言語が話せますか</li>
+	
+	<li>本を読むこと</li>
+	<li>映画を見ること</li>
+	<li>5個言語が話せますか
+		<ul>
+			<li>僕語</li>
+			<li>インド語</li>
+			<li>英語</li>
+			<li>文化言語</li>
+			<li>日本語</li>
+		</ul>
+	</li>
+</ol>
+<h1 align="center" style="background-color: aquamarine;" style="visibility: visible;">好きなこと</h1>
+<ul style="display: flex; flex-wrap: wrap; list-style: none; padding: 0; gap: 30px;">
+<li><img height="300px" width="100px" src="My image/the hobbit.jpg"><span><br><button>映画<br>The hobbit</button></span></li>
+<li><img height="300px" width="100px" src="My image/money.jpg" src="My image/raj.jpg"><span><br><button>本</span><br>歴史,AI,お金</button></span></li>
+<li><img height="105px" width="105px" src="My image/guitar.jpg"><span><br><button>ギータ<br>クラシック</button></span></li>
+<li><img height="300px" width="220px" src="My image/counsult.jpg"><span><br><button>相談</button></span></li>
+<li><img height="300px" width="150px" src="My image/raj.jpg"><span><br><button> Pod Cast</button><br></span></li>
+
+</ul>
+
+<div class="contents bg1" id="link">
+
+	<div class="inner">
+	
+	<section>
+
+	<h2>Link<span>リンク</span></h2>
+	
+	<table class="ta1">
+	<caption>見出しが必要であればここを使います</caption>
+	
+	<tr>
+	<th><a href="https://www.thehobbit.com/">The Hobbit</a></th>
+	<td>一番好きな映画です。この映画は17個オスカーできています</td>
+	</tr>
+	<tr>
+	<th><a href="https://www.google.com/aclk?sa=L&pf=1&ai=DChsSEwi70sqW0OqUAxUl2kwCHQwdHLEYACICCAEQABoCdG0&co=1&ase=2&gclid=Cj0KCQjwof_QBhCgARIsADaMzOcNj3SVliv8mNPuIye0vEeuFDbpZv6v50x6YCcAkCwpD3hEGjaXoNYaAgpkEALw_wcB&cid=CAASuwHkaLkAJQo5D4NWHAT8edpMqaBSFUZQXMtKwlEJXwfk1PTGYV4ucRSagmpyTByCXYQkXzEdSzp6EgaK1zd6hqwLcDGBIPdk3PFO6ckKmiMOpU3tcLZBXKBc8ay2s3tDNYiIfj3LXnTgXr6kxw332FkJcmpTVgAj7S-XZqRcgnroB1voSiWGUJJma4cl-go-zpYJXdjIgv5pKV5dkf7uueK5IItLFbJYE7E8EjMQP3MtUpyWh86FQrVAnB1l&cce=2&category=acrcp_v1_32&sig=AOD64_2oRBWCcf3NPvqLUADHtI8ShHmAvQ&q&nis=4&adurl=https://isha.sadhguru.org/en/wisdom/article/bhagavad-gita-krishna?utm_source%3Dgoogle%26utm_medium%3Dcpc%26utm_campaign%3Diso_grant%26gad_source%3D1%26gad_campaignid%3D12606413678%26gbraid%3D0AAAAADJ0ff-HNWydCI0J4JMDcr9hqS3Ay%26gclid%3DCj0KCQjwof_QBhCgARIsADaMzOcNj3SVliv8mNPuIye0vEeuFDbpZv6v50x6YCcAkCwpD3hEGjaXoNYaAgpkEALw_wcB&ved=2ahUKEwi_48GW0OqUAxVntlYBHeS7F_8Q0Qx6BAggEAE">ギター本</a></th>
+	<td>この本は歴史的な本です。この本に歴史はもちろんその他人生,闘争,ヨガ，原因と結果の精神的な原理とかの悔しく説明しております。</td>
+	</tr>
+	<tr>
+	<th><a href="https://soundcloud.com/rahulrai-tribal-rain">クラシック　ギータ</a></th>
+	<td>クラシックギターの音楽聞いたら何かするできます。できます。</td>
+	</tr>
+	<tr>
+	<th><a href="#">相談</a></th>
+	<td>何か新たな技術とか面白い話ししながら楽しめることが好きだ。</td>
+	</tr>
+	<tr>
+	<th><a href="https://www.youtube.com/rajshamani">ポッドキャスト</a></th>
+	<td>彼のポッドキャストはインドと英語の言語にあります。彼は国の人だけではなく海外の大統領とかオリンピック勝った人やマイクロソフトのCEOとかでもポッドキャストできました</td>
+	</table>
+
+	</section>
+
+	</div>
+	<!--/.inner-->
+
+</div>
+
+	<div class="social-menu">
+	<h2>Contact<span>コンタクト</span></h2>
+	<p class="c">yukeshm362@gmail.com</p>
+	<ul>
+		<li><a href=""><i class="fab fa-github"></i></a></li>
+		<li><a href="#"><i class="fab fa-instagram"></i></a></li>
+		<li><a href="#"><i class="fab fa-Linked-in"></i></a></li>
+		<li><a href="#"><i class="fab fa-facebook"></i></a></li>
+	</ul>
+	
+
+</body>
+</html>

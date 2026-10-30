@@ -1,0 +1,10 @@
+{
+    "title":  "My First Portfolio",
+    "description":  "My first self-introduction page: profile photo, hobbies, and links to things I like.",
+    "tech":  [
+                 "HTML",
+                 "CSS"
+             ],
+    "entry":  "index.html",
+    "order":  3
+}

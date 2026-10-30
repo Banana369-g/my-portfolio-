@@ -1,0 +1,11 @@
+{
+    "title":  "Black Clover Fan Page",
+    "description":  "A character page laid out with Bootstrap 5 cards and a navigation bar.",
+    "tech":  [
+                 "HTML",
+                 "CSS",
+                 "Bootstrap"
+             ],
+    "entry":  "page3.html",
+    "order":  5
+}

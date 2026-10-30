@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guts | Portfolio</title>
+<meta name="description" content="Portfolio of yukesh, a first-year system engineering student in Japan aiming to become a software engineer.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- Language switch without JavaScript: these two radio buttons are hidden,
+     and the EN / 日本語 labels in the header are the real buttons.
+     To open the site in Japanese first, move "checked" to the l-ja input. -->
+<input class="sr" type="radio" name="lang" id="l-en" aria-label="English" checked>
+<input class="sr" type="radio" name="lang" id="l-ja" aria-label="日本語">
+
+<header class="top">
+  <div class="wrap bar">
+    <a class="logo" href="#home">Guts<span>.</span></a>
+    <nav aria-label="Main">
+      <a href="#about"><span lang="en">About</span><span lang="ja">自己紹介</span></a>
+      <a href="#skills"><span lang="en">Skills</span><span lang="ja">スキル</span></a>
+      <a href="#projects"><span lang="en">Projects</span><span lang="ja">制作物</span></a>
+      <a href="#journey"><span lang="en">Journey</span><span lang="ja">学習の流れ</span></a>
+      <a href="#contact"><span lang="en">Contact</span><span lang="ja">連絡先</span></a>
+    </nav>
+    <div class="lang" role="group" aria-label="Language">
+      <label for="l-en">EN</label><label for="l-ja">日本語</label>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- Hero -->
+<section class="hero" id="home">
+  <div class="wrap">
+    <h1><span lang="en">Hello, I’m <em>Guts</em>.</span><span lang="ja">はじめまして、<em>Guts</em>です。</span></h1>
+    <p class="tagline" lang="en">An aspiring software engineer who enjoys learning, building, and solving problems.</p>
+    <p class="tagline" lang="ja">学ぶこと、作ること、問題を解くことが好きな、ソフトウェアエンジニア志望です。</p>
+    <p class="intro" lang="en">I’m a first-year System Engineering student at a vocational IT school in Fukuoka, Japan. I’m building my foundations in Java, SQL, and Linux by making small projects and fixing what breaks.</p>
+    <p class="intro" lang="ja">福岡の専門学校でシステムエンジニアリングを学ぶ1年生です。小さなアプリを作り、エラーを直しながら、Java・SQL・Linuxの基礎を身につけています。</p>
+    <div class="btns">
+      <a class="btn solid" href="#projects"><span lang="en">View My Projects</span><span lang="ja">制作物を見る</span></a>
+      <a class="btn" href="#about"><span lang="en">About Me</span><span lang="ja">自己紹介</span></a>
+      <a class="btn" href="#contact"><span lang="en">Contact Me</span><span lang="ja">連絡する</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section id="about">
+  <div class="wrap narrow">
+    <h2><span lang="en">About Me</span><span lang="ja">自己紹介</span></h2>
+    <div lang="en">
+      <p>I study system engineering because I want to understand how software really works, not only get it to run. Copying code never taught me much. Building something, breaking it, and tracing why it broke does.</p>
+      <p>When my code doesn’t work, I read the error message from the top, check the line it points to, and change one thing at a time. If I’m still stuck, I read the documentation, then ask a teacher or classmate and tell them what I’ve already tried.</p>
+      <p>I want to become an engineer who writes code other people can read and who can explain what it does. I’m also working on my Japanese so I can communicate well in a team in Japan.</p>
+    </div>
+    <div lang="ja">
+      <p>コードを動かすだけでなく、ソフトウェアが実際にどう動いているかを理解したいと思い、システムエンジニアリングを学んでいます。コードを写すだけではあまり身につかず、自分で作って、壊して、原因を調べることで理解が深まります。</p>
+      <p>コードが動かないときは、エラーメッセージを最初から読み、示された行を確認して、一度に一つずつ変更します。それでも解決しないときは、ドキュメントを読んでから、試したことを伝えて先生やクラスメイトに質問します。</p>
+      <p>他の人が読めるコードを書き、その内容を説明できるエンジニアになりたいです。日本のチームで円滑に話せるよう、日本語の勉強も続けています。</p>
+    </div>
+  </div>
+</section>
+
+<!-- Skills -->
+<section id="skills">
+  <div class="wrap">
+    <h2><span lang="en">Technical Skills</span><span lang="ja">技術スキル</span></h2>
+    <p class="note" lang="en">Levels are my honest self-assessment. I’m a student, so everything here is at a learning stage.</p>
+    <p class="note" lang="ja">レベルは正直な自己評価です。学生のため、すべて学習段階です。</p>
+    <div class="grid four">
+      <div class="card glass"><h3><span lang="en">Programming</span><span lang="ja">プログラミング</span></h3>
+        <ul class="rows"><li>Java <b><span lang="en">Learning</span><span lang="ja">学習中</span></b></li></ul></div>
+      <div class="card glass"><h3><span lang="en">Web</span><span lang="ja">Web</span></h3>
+        <ul class="rows"><li>HTML <b><span lang="en">Fundamentals</span><span lang="ja">基礎</span></b></li><li>CSS <b><span lang="en">Fundamentals</span><span lang="ja">基礎</span></b></li></ul></div>
+      <div class="card glass"><h3><span lang="en">Database</span><span lang="ja">データベース</span></h3>
+        <ul class="rows"><li>SQL <b><span lang="en">Fundamentals</span><span lang="ja">基礎</span></b></li></ul></div>
+      <div class="card glass"><h3><span lang="en">Tools &amp; basics</span><span lang="ja">ツール・基礎</span></h3>
+        <ul class="rows"><li>Git / GitHub <b><span lang="en">Learning</span><span lang="ja">学習中</span></b></li><li>Linux <b><span lang="en">Fundamentals</span><span lang="ja">基礎</span></b></li><li>Cloud <b><span lang="en">Learning</span><span lang="ja">学習中</span></b></li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- Projects -->
+<section id="projects">
+  <div class="wrap">
+    <h2><span lang="en">Projects</span><span lang="ja">制作物</span></h2>
+    <p class="note" lang="en">None of these are deployed. GitHub links and screenshots will be added when they are ready.</p>
+    <p class="note" lang="ja">いずれも公開はしていません。GitHubのリンクとスクリーンショットは、準備ができ次第追加します。</p>
+    <div class="grid two">
+
+      <article class="card glass">
+        <span class="badge wip"><span lang="en">In Progress</span><span lang="ja">制作中</span></span>
+        <h3>Computer Shop System</h3>
+        <div lang="en">
+          <p>A Java and SQLite project for showing computer products and managing product information.</p>
+          <p class="meta"><b>Tech:</b> Java, SQLite, JDBC</p>
+          <p class="meta"><b>Working on:</b> product list, search, and product details.</p>
+          <p class="meta"><b>Learned:</b> separating the program into model, view, and controller.</p>
+          <p class="meta"><b>Challenge:</b> I got a “No suitable driver found” error. I learned to check that the SQLite jar was on the build path and that the driver was loaded.</p>
+        </div>
+        <div lang="ja">
+          <p>コンピューター製品の表示と商品情報の管理をするJavaとSQLiteのプロジェクトです。</p>
+          <p class="meta"><b>技術:</b> Java、SQLite、JDBC</p>
+          <p class="meta"><b>取り組み中:</b> 商品一覧、検索、商品詳細。</p>
+          <p class="meta"><b>学んだこと:</b> モデル・ビュー・コントローラに分けて作ること。</p>
+          <p class="meta"><b>課題:</b> 「No suitable driver found」というエラーが出ました。SQLiteのjarがビルドパスにあるか、ドライバが読み込まれているかを確認することを学びました。</p>
+        </div>
+        <p class="todo" lang="en">Screenshot and GitHub link: to be added</p>
+        <p class="todo" lang="ja">スクリーンショットとGitHubリンク: 追加予定</p>
+      </article>
+
+      <article class="card glass">
+        <span class="badge wip"><span lang="en">In Progress</span><span lang="ja">制作中</span></span>
+        <h3>Personal Portfolio Website</h3>
+        <div lang="en">
+          <p>This site. A responsive page in HTML, CSS, and JavaScript, in English and Japanese.</p>
+          <p class="meta"><b>Tech:</b> HTML, CSS, JavaScript</p>
+          <p class="meta"><b>Learned:</b> semantic HTML, responsive layout, and basic accessibility.</p>
+          <p class="meta"><b>Challenge:</b> my first version had broken tags and a broken map embed. Fixing them taught me to validate my HTML.</p>
+        </div>
+        <div lang="ja">
+          <p>このサイトです。HTML・CSS・JavaScriptで作った、英語と日本語のレスポンシブなページです。</p>
+          <p class="meta"><b>技術:</b> HTML、CSS、JavaScript</p>
+          <p class="meta"><b>学んだこと:</b> セマンティックHTML、レスポンシブなレイアウト、基本的なアクセシビリティ。</p>
+          <p class="meta"><b>課題:</b> 最初の版はタグの誤りと地図の埋め込みの不具合がありました。直す中で、HTMLを検証することを学びました。</p>
+        </div>
+      </article>
+
+      <article class="card glass">
+        <span class="badge"><span lang="en">Learning Project</span><span lang="ja">学習用</span></span>
+        <h3>SQL Practice</h3>
+        <div lang="en">
+          <p>Exercises in table design, queries, joins, and data management.</p>
+          <p class="meta"><b>Tech:</b> SQL, SQLite</p>
+          <p class="meta"><b>Learned:</b> using placeholders (?) and checking column names carefully.</p>
+        </div>
+        <div lang="ja">
+          <p>テーブル設計、クエリ、結合、データ管理の練習です。</p>
+          <p class="meta"><b>技術:</b> SQL、SQLite</p>
+          <p class="meta"><b>学んだこと:</b> プレースホルダ(?)の使い方と、列名を丁寧に確認すること。</p>
+        </div>
+      </article>
+
+      <article class="card glass">
+        <span class="badge"><span lang="en">Learning Project</span><span lang="ja">学習用</span></span>
+        <h3>Java Practice Applications</h3>
+        <div lang="en">
+          <p>Small console programs for practicing Java and problem solving, such as a search menu and a Robocode robot.</p>
+          <p class="meta"><b>Tech:</b> Java</p>
+          <p class="meta"><b>Learned:</b> reading compiler errors and fixing them one by one.</p>
+        </div>
+        <div lang="ja">
+          <p>JavaとJavaの問題解決を練習する小さなプログラムです。検索メニューやRobocodeのロボットなどを作りました。</p>
+          <p class="meta"><b>技術:</b> Java</p>
+          <p class="meta"><b>学んだこと:</b> コンパイルエラーを読み、一つずつ直すこと。</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- Learning journey -->
+<section id="journey">
+  <div class="wrap narrow">
+    <h2><span lang="en">My Learning Journey</span><span lang="ja">学習の進め方</span></h2>
+    <ol class="steps">
+      <li><b lang="en">In class</b><b lang="ja">授業</b><span lang="en">I follow the school assignments in Java, SQL, and Linux.</span><span lang="ja">Java、SQL、Linuxの課題に取り組みます。</span></li>
+      <li><b lang="en">On my own</b><b lang="ja">自習</b><span lang="en">I rebuild each assignment with different data so I know I understand it.</span><span lang="ja">課題を別のデータで作り直し、理解できているか確かめます。</span></li>
+      <li><b lang="en">When it breaks</b><b lang="ja">エラーが出たとき</b><span lang="en">I read the error, test one change at a time, check the documentation, then ask.</span><span lang="ja">エラーを読み、一度に一つずつ試し、ドキュメントを確認してから質問します。</span></li>
+      <li><b lang="en">Next</b><b lang="ja">これから</b><span lang="en">Put my projects on GitHub and study for JLPT N2.</span><span lang="ja">制作物をGitHubに載せ、JLPT N2の勉強を続けます。</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- Strengths -->
+<section id="strengths">
+  <div class="wrap">
+    <h2><span lang="en">Strengths</span><span lang="ja">強み</span></h2>
+    <div class="grid three">
+      <div class="card glass"><h3><span lang="en">Continuous learning</span><span lang="ja">学び続ける力</span></h3>
+        <p lang="en">I study beyond class and try technologies I haven’t seen before. In a team, I can pick up new tools without waiting to be taught.</p>
+        <p lang="ja">授業以外でも勉強し、初めての技術にも挑戦します。チームでは、新しいツールを自分から習得できます。</p></div>
+      <div class="card glass"><h3><span lang="en">Careful problem-solving</span><span lang="ja">丁寧な問題解決</span></h3>
+        <p lang="en">I trace errors step by step to find the cause. In a team, I can write clear bug reports and avoid fixing symptoms only.</p>
+        <p lang="ja">エラーを一歩ずつたどり、原因を探します。チームでは、分かりやすい不具合報告ができ、表面だけの修正を避けられます。</p></div>
+      <div class="card glass"><h3><span lang="en">Communication</span><span lang="ja">コミュニケーション</span></h3>
+        <p lang="en">Teaching children taught me patience and how to explain things simply. In a team, I can explain my code and ask clear questions.</p>
+        <p lang="ja">子どもたちに教えた経験で、忍耐強さと分かりやすく伝える力を学びました。チームでは、自分のコードを説明し、的確に質問できます。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Beyond coding -->
+<section id="beyond">
+  <div class="wrap narrow">
+    <h2><span lang="en">Beyond Coding</span><span lang="ja">コード以外のこと</span></h2>
+    <ul class="chips" lang="en"><li>Movies and anime</li><li>Reading</li><li>Music</li><li>Exploring places in Fukuoka</li><li>Learning about cultures</li></ul>
+    <ul class="chips" lang="ja"><li>映画・アニメ</li><li>読書</li><li>音楽</li><li>福岡の場所めぐり</li><li>異文化を学ぶこと</li></ul>
+  </div>
+</section>
+
+<!-- Education and language -->
+<section id="education">
+  <div class="wrap narrow">
+    <h2><span lang="en">Education &amp; Language</span><span lang="ja">学歴・語学</span></h2>
+    <div class="grid two">
+      <div class="card glass"><h3><span lang="en">Education</span><span lang="ja">学歴</span></h3>
+        <p lang="en">System Engineering, vocational IT school in Fukuoka, Japan (first year).</p>
+        <p lang="ja">福岡の専門学校 システムエンジニアリング(1年生)。</p>
+        <p class="todo" lang="en">[Add your school name and dates]</p>
+        <p class="todo" lang="ja">[学校名と期間を追加してください]</p></div>
+      <div class="card glass"><h3><span lang="en">Languages</span><span lang="ja">言語</span></h3>
+        <p lang="en">Japanese: JLPT N3 passed, studying for N2.</p>
+        <p lang="ja">日本語: JLPT N3合格、N2に向けて勉強中。</p>
+        <p class="todo" lang="en">[Add other languages you can really use, with an honest level]</p>
+        <p class="todo" lang="ja">[実際に使える他の言語と、正直なレベルを追加してください]</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+  <div class="wrap narrow center">
+    <h2><span lang="en">Contact</span><span lang="ja">連絡先</span></h2>
+    <p lang="en">I’m looking for internship and entry-level opportunities. Feel free to email me.</p>
+    <p lang="ja">インターンシップや新卒・未経験者向けの機会を探しています。お気軽にメールをお送りください。</p>
+    <p><a class="mail" href="mailto:yukeshm362@gmail.com">yukeshm362@gmail.com</a></p>
+    <!-- TODO: when you have them, replace these two lines with real links -->
+    <p class="todo" lang="en">GitHub: [add your profile URL]  ·  LinkedIn: [add your profile URL]</p>
+    <p class="todo" lang="ja">GitHub: [プロフィールURLを追加]  ·  LinkedIn: [プロフィールURLを追加]</p>
+  </div>
+</section>
+
+</main>
+
+<footer><div class="wrap">© 2026 Guts</div></footer>
+
+</body>
+</html>

@@ -1,0 +1,413 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Portfolio</title>
+  <link rel="stylesheet" href="stylesheet/style.css">
+  <style>
+    /* ===== Animated Skills Section (added) ===== */
+    #skills .card:first-child{
+      position: relative;
+      overflow: hidden;
+    }
+
+    #skills .skills-table{
+      width: 100%;
+      border-collapse: collapse;
+    }
+    #skills .skills-table tr{
+      opacity: 0;
+      transform: translateX(-24px);
+      animation: skillFadeIn 0.6s ease forwards;
+    }
+    #skills .skills-table tr:nth-child(1){ animation-delay: .08s; }
+    #skills .skills-table tr:nth-child(2){ animation-delay: .18s; }
+    #skills .skills-table tr:nth-child(3){ animation-delay: .28s; }
+    #skills .skills-table tr:nth-child(4){ animation-delay: .38s; }
+
+    @keyframes skillFadeIn{
+      to{ opacity: 1; transform: translateX(0); }
+    }
+
+    #skills .skills-table td{
+      padding: 10px 8px;
+      vertical-align: middle;
+      border-bottom: 1px solid rgba(0,0,0,.06);
+    }
+    #skills .skills-table tr:last-child td{
+      border-bottom: none;
+    }
+    #skills .skills-table td.col-icon{
+      width: 34px;
+      font-size: 1.15em;
+      text-align: center;
+      filter: drop-shadow(0 0 3px rgba(255,99,71,.5));
+    }
+    #skills .skills-table td.col-name{
+      width: 110px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    #skills .skills-table td.col-bar{
+      width: auto;
+    }
+    #skills .skills-table td.col-percent{
+      width: 50px;
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      color: tomato;
+      font-weight: 600;
+    }
+
+    #skills .bar{
+      position: relative;
+      height: 12px;
+      border-radius: 999px;
+      background: rgba(0,0,0,.08);
+      overflow: hidden;
+    }
+    #skills .bar span{
+      display: block;
+      height: 100%;
+      width: 0%; /* animated via JS to target width */
+      border-radius: 999px;
+      background: linear-gradient(90deg, tomato, blueviolet);
+      background-size: 200% 100%;
+      transition: width 1.4s cubic-bezier(.22,1,.36,1);
+      position: relative;
+      animation: barGradientShift 3s linear infinite;
+    }
+    #skills .bar span::after{
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,.55) 45%, transparent 65%);
+      transform: translateX(-120%);
+      animation: barShimmer 2.2s ease-in-out infinite;
+    }
+
+    @keyframes barGradientShift{
+      0%{ background-position: 0% 50%; }
+      100%{ background-position: 200% 50%; }
+    }
+    @keyframes barShimmer{
+      0%{ transform: translateX(-120%); }
+      60%, 100%{ transform: translateX(220%); }
+    }
+
+    #skills .tags .tag{
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(10px) scale(.9);
+      animation: tagPop .5s ease forwards;
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+    #skills .tags .tag:hover{
+      transform: translateY(-3px) scale(1.06);
+      box-shadow: 0 6px 16px rgba(255,99,71,.25);
+    }
+    #skills .tags .tag:nth-child(1){ animation-delay: .05s; }
+    #skills .tags .tag:nth-child(2){ animation-delay: .15s; }
+    #skills .tags .tag:nth-child(3){ animation-delay: .25s; }
+    #skills .tags .tag:nth-child(4){ animation-delay: .35s; }
+    #skills .tags .tag:nth-child(5){ animation-delay: .45s; }
+    #skills .tags .tag:nth-child(6){ animation-delay: .55s; }
+
+    @keyframes tagPop{
+      to{ opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    /* Only run the reveal animations once the section is visible */
+    #skills:not(.in-view) .skills-table tr,
+    #skills:not(.in-view) .tags .tag{
+      animation-play-state: paused;
+      opacity: 0;
+    }
+    #skills.in-view .skills-table tr,
+    #skills.in-view .tags .tag{
+      animation-play-state: running;
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <div class="logo"><b>タパ　ユケシュ</b></div>
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#cv">C.V</a>
+        <a href="#projects">プロジェクト</a>
+        <a href="#skills">技量</a>
+        <a href="#memories">思い出</a>
+        <a href="#contact">コンタクト</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="badge"><b>こんにちは,僕は タパ　ユケシュ</b></span>
+          <h1 style="color: tomato;"><b>SYSTEM ENGINEER </b></h1>
+          <p class="lead" style="color: blueviolet;"><b>よこそ<br>専門1年生好奇心旺盛既に意義のものを作り上げている。</b></p>
+          <div class="btns">
+            <a class="btn primary" href="#projects">プロジェクト見る</a>
+            <a class="btn" href="#contact">コンタクト</a>
+          </div>
+        </div>
+        <div class="hero-card profile">
+          <img height="50px" src="my photos/IMG_20260616_174358.jpg" alt="Yukesh PP" class="avatar-img">
+          <h2 style="margin:0">Your Profile</h2>
+          <p class="small" style="color: darkslategray;">日本のIT企業を目指し,java/HTML/CSSのスキルを磨いているIT専攻学生。日本語能力試験N2の準備も進めています。</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container two-col">
+        <div class="card">
+          <h2 class="section-title">私については::</h2>
+          <p>私の名前はタパユケシュです。私は今愛和システムエンジニア学校でIT学科が学んでいます。小学校の時からコンピューターの学科勉強したくってその時学校にもコンピューター学科がなくって勉強できなかった。 初めて高校でコンピューター学科選んで勉強始めました。その時初めてプログラミング言語勉強してプログラミングに気になりました。 その事今後勉強したいと思って今愛和システムエンジニア学校で(HTML,Java,CSS)とかのプログラミング言語勉強しています。 今の勉強は楽しくしています。しかしこれからもプログラミング成長していきたいます。.</p>
+        </div>
+        <div class="card">
+          <h2 class="section-title">趣味</h2>
+          <div class="tags">
+            <span class="tag">coding</span>
+            <span class="tag">読むこと</span>
+            <span class="tag">歌を聞く</span>
+            <span class="tag">旅行</span>
+            <span class="tag">写真撮影</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="cv">
+      <div class="container card">
+        <h2 class="section-title">履歴書</h2>
+        <div class="grid">
+          <div><strong>教育</strong><p class="small"><ol><li>2020-2022 Ram shaha secondary school</li>
+            <li>2024-2026はあと日本語学校</li><li>2026-2028 愛和システムエンジニア専門学校</li></ol></p></div>
+          <div><strong>経験</strong><p class="small"><ol><li>多言語</li><ul><li>日本語</li><li>僕語</li><li>英語</li><li>インド語</li><li>文化言語</li></ul><li>HTML/CSS</li><li>JAVA プログラミング</li><li>写真撮影</li><li>介護の仕事2年</li></ol></p></div>
+          <div><stron>成果</strong><p class="small"><ol><li>日本語学校の証明書</li><li>介護の証明書</li></ol></p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <h2 class="section-title">プロジェクト</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>ジャバ　プロジェクト 1</h3>
+			   <p>私はJAVAを使ってバトル　ゲームを作りました。</p>
+          </div>
+          <div class="card">
+            <h3>ジャバ　プロジェクト 2</h3>
+            <p>じゃんけん　ゲームを作りました。</p>
+           
+          </div>
+          <div class="card">
+            <h3>HTML プロジェクト</h3>
+            <p>福岡について旅するところのweb page 作りました</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container two-col">
+        <div class="card">
+          <h2 class="section-title">技量</h2>
+          <table class="skills-table">
+            <tbody>
+              <tr>
+                <td class="col-icon">🌐</td>
+                <td class="col-name">HTML</td>
+                <td class="col-bar"><div class="bar"><span data-target-width="80%"></span></div></td>
+                <td class="col-percent skill-percent" data-target="80">0%</td>
+              </tr>
+              <tr>
+                <td class="col-icon">🎨</td>
+                <td class="col-name">CSS</td>
+                <td class="col-bar"><div class="bar"><span data-target-width="60%"></span></div></td>
+                <td class="col-percent skill-percent" data-target="60">0%</td>
+              </tr>
+              <tr>
+                <td class="col-icon">☕</td>
+                <td class="col-name">Java</td>
+                <td class="col-bar"><div class="bar"><span data-target-width="50%"></span></div></td>
+                <td class="col-percent skill-percent" data-target="50">0%</td>
+              </tr>
+              <tr>
+                <td class="col-icon">⚡</td>
+                <td class="col-name">JavaScript</td>
+                <td class="col-bar"><div class="bar"><span data-target-width="10%"></span></div></td>
+                <td class="col-percent skill-percent" data-target="10">0%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="card">
+          <h2 class="section-title">私は使っているもの</h2>
+          <div class="tags">
+            <span class="tag">VS Code</span>
+            <span class="tag">GitHub</span>
+            <span class="tag">Figma</span>
+            <span class="tag">Java</span>
+            <span class="tag">HTML5</span>
+            <span class="tag">CSS3</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    </main>
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="section-num">03</span>
+        <h2 class="section-title">Inspiration Modules</h2>
+        <div class="section-rule"></div>
+      </div>
+ 
+      <div class="circuit reveal">
+        <div class="node-grid">
+ 
+          <a class="node" href="https://www.thehobbit.com/" target="_blank" rel="noopener noreferrer">
+            <span class="node-id">MOD.01 / MOV</span>
+            <span class="node-go">↗</span>
+            <svg style="height: 100px;" class="node-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2.5" y="5" width="19" height="14" rx="1.5"/><path d="M7 5v14M17 5v14M2.5 9.5h4.5M2.5 14.5h4.5M17 9.5h4.5M17 14.5h4.5"/></svg>
+            <div class="node-title">Movies</div>
+            <div class="node-sub">Watching → IMDb</div>
+          </a>
+ 
+          <a class="node" href="https://www.lib.city.fukuoka.jp/" target="_blank" rel="noopener noreferrer">
+            <span class="node-id">MOD.02 / BOOK</span>
+            <span class="node-go">↗</span>
+            <svg style="height: 100px;"   class="node-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4.5C6 3.5 9 3.5 12 5v14.5c-3-1.5-6-1.5-8-.5V4.5Z"/><path d="M20 4.5c-2-1-5-1-8 .5v14.5c3-1.5 6-1.5 8-.5V4.5Z"/></svg>
+            <div class="node-title">Books</div>
+            <div class="node-sub">Reading → Library</div>
+          </a>
+ 
+          <a class="node" href=" https://soundcloud.com/rahulrai-tribal-rain" target="_blank" rel="noopener noreferrer">
+            <span class="node-id">MOD.03 / GTR</span>
+            <span class="node-go">↗</span>
+            <svg style="height: 100px;" class="node-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8.5" cy="16.5" r="3.5"/><path d="M11.5 14 17 4.5c.5-.9 1.8-1 2.4-.1.5.7.2 1.7-.6 2.1L13.5 9M15 6l2.5 1.4"/></svg>
+            <div class="node-title">Guitar</div>
+            <div class="node-sub">Playing → Ultimate Guitar</div>
+          </a>
+
+          <a class="node" href="https://atcoder.jp/" target="_blank" rel="noopener noreferrer">
+            <span class="node-id">MOD.04 / ALGO</span>
+            <span class="node-go">↗</span>
+            <svg style="height: 100px;" class="node-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 18V6M4 12h4l2-5 3 10 2-5h5"/></svg>
+            <div class="node-title">Problem Solving</div>
+            <div class="node-sub">Practicing → AtCoder</div>
+          </a>
+ 
+          <a class="node" href="https://www.youtube.com/rajshamani" target="_blank" rel="noopener noreferrer">
+            <span class="node-id">MOD.05 / POD</span>
+            <span class="node-go">↗</span>
+            <svg style="height: 100px;" class="node-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9.5"/><path d="M7 15.5c3.5-1.5 6.5-1.5 10 0M7.8 12.2c2.8-1.1 5.4-1.1 8.2 0M8.6 9c2.2-.7 4.4-.7 6.6 0"/></svg>
+            <div class="node-title">Podcasts</div>
+            <div class="node-sub">Listening → Spotify</div>
+          </a>
+ 
+        </div>
+        <p class="interests-note">Each module links out to a real source — swap the URLs for your own channels, shelves, and profiles anytime.</p>
+      </div>
+    </div>
+  </section>
+ 
+
+    <section id="memories">
+      <div class="container card">
+        <h2 class="section-title">学校時代の思い出</h2>
+        <div class="timeline">
+          <div class="item"><strong>高校学校の思い出</strong><p class="small">友達とプロジェクト作ったりスポーツしたり色々な所に旅行ったりしました。それで私にとっては
+            人生の中で一番面白いし忘れにくい思い出は高校のことと思いま。友達ともちろん色んないたずらことをしましたしかし友達が怒るじゃなくそのことは面白くしてました。
+          </p></div>
+          <div class="item"><strong>高校後の2年間</strong><p class="small">高校の後の２年は日本語の勉強習い始めました。その時は勉強ももちろん
+            つずいったりそれ以外の時は自分が行きたい色々なところに旅行しました。友達とキャンピング,登山,運動,色んな文化の祭りに行って色んな
+            経験しました。その中で一番面白いことは登山と他の文化の祭りを誓いで深く見ろことができて知りたいことは自分が思ったよりもたくさんありますと
+            感じました。
+          </p></div>
+          <div class="item"><strong>日本の思い出</strong><p class="small">今の留学して日本に来た学生がなぜ日本に来たと思っているんだけど私は日本に来て面白くしてる
+            なぜかと言うと日本が私にチャンスが上げました私はそのチャンスは無駄にせっずに使っています。日本語習うときにもちろん漢字難しいけど漢字以外のことは面白く習ってきました。
+            日本語学校の友達も同じ国のももちろん他の国の友達も皆高校にあった友達と同じ感じて日本語習うときにも安くって他の国のこともたくさん知りました。
+            バイトするときのも一人ネパール人あってちょっと怖い気持ちだったけど日本人も皆優しく仕事教えて日本人が思ったよりと他の人から聞いた状態よりも優しいかんじました。
+          </p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container two-col">
+        <div class="card">
+          <h2 class="section-title">Contact</h2>
+          <p><strong>Email:</strong>yukeshm362@gmail.com</p>
+          <p><strong>Instagram:</strong>@yueksh3720</p>
+          <p><strong>Facebook:</strong>yukesh J magar</p>
+          <p><strong>LinkedIn:</strong>Yukesh magar</p>
+        </div>
+        <div class="card">
+          <h2 class="section-title">プロフィール　ノト</h2>
+          <p class="small">私のポートフォリオは,　将来のシステムエンジニアとしてのわたしの成長を示すものです。デザインは洗練されており、スキル、プロジェクト、学歴、経験が明確に記載されたいます。そして、私の努力、学習、そして洗剤能力を反います。います。</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">© 2026 タパ　ユケシュ </div>
+  </footer>
+
+  <script>
+    // ===== Animate skill bars + percentage counters when #skills scrolls into view =====
+    (function(){
+      const skillsSection = document.getElementById('skills');
+      if(!skillsSection) return;
+
+      function animateSkills(){
+        skillsSection.classList.add('in-view');
+
+        // Fill bars
+        document.querySelectorAll('#skills .bar span').forEach(bar => {
+          const target = bar.getAttribute('data-target-width');
+          requestAnimationFrame(() => { bar.style.width = target; });
+        });
+
+        // Count-up percentages
+        document.querySelectorAll('#skills .skill-percent').forEach(el => {
+          const target = parseInt(el.getAttribute('data-target'), 10) || 0;
+          const duration = 1400;
+          const start = performance.now();
+          function step(now){
+            const progress = Math.min((now - start) / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+            el.textContent = Math.round(eased * target) + '%';
+            if(progress < 1) requestAnimationFrame(step);
+          }
+          requestAnimationFrame(step);
+        });
+      }
+
+      if('IntersectionObserver' in window){
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if(entry.isIntersecting){
+              animateSkills();
+              observer.disconnect();
+            }
+          });
+        }, { threshold: 0.3 });
+        observer.observe(skillsSection);
+      } else {
+        // Fallback for older browsers
+        animateSkills();
+      }
+    })();
+  </script>
+</body>
+</html>

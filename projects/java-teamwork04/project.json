@@ -1,0 +1,12 @@
+{
+    "title":  "PC Marketplace (パソコン売買サイト)",
+    "description":  "Team project: a Java MVC console app for buying and selling computers, backed by a SQLite database through JDBC. List, search by keyword or price, buy and sell from the menu; the app then generates this shop website with product pages, filters, orders and customer reviews.",
+    "tech":  [
+                 "Java",
+                 "MVC",
+                 "SQLite / JDBC",
+                 "Team project"
+             ],
+    "entry":  "computerList.html",
+    "order":  2
+}

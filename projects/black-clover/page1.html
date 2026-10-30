@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>sudipの好きな女の子 Best 3</title>
+   
+</head>
+  
+
+    <h2 class="cool">sudipの好きな女の子 Best 3</h2>
+
+    <table>
+        <tr>
+            <th>Girl ID</th>
+            <th>Girl Name</th>
+            <th>Country</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>miya</td>
+            <td>
+                <img alt="miya"
+                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmd12QZIxEXEGq6vpqI__xHG3DeZwo-Y0Woe4tlgrhc_JLSls-vWWLSLKd&s=10"
+                     data-name="Miya"
+                     data-role="Marksman"
+                     data-info="Write about Miya here.">
+            </td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>kagura</td>
+            <td>
+                <img alt="kagura"
+                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8clAoXsXJsxUvK2wrk8y838TG8K9Yz1vK-vxTbrC89ILUfg5-0MhNam_G&s=10"
+                     data-name="Kagura"
+                     data-role="Mage"
+                     data-info="Write about Kagura here.">
+            </td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>hanabi</td>
+            <td>
+                <img alt="hanabi"
+                     src="https://i.pinimg.com/736x/e3/d5/03/e3d503ffbdbf4413bbc2c795a989e489.jpg"
+                     data-name="Hanabi"
+                     data-role="Marksman"
+                     data-info="Write about Hanabi here.">
+            </td>
+        </tr>
+    </table>
+
+    <!-- Profile popup -->
+    <div class="overlay" id="overlay">
+        <div class="profile">
+            <button class="close" id="closeBtn" aria-label="Close">&times;</button>
+            <img id="pImg" src="" alt="">
+            <h3 id="pName"></h3>
+            <p class="role" id="pRole"></p>
+            <p id="pInfo"></p>
+        </div>
+    </div>
+
+    <script>
+        // ----- Embers -----
+        const embers = document.getElementById("embers");
+        for (let i = 0; i < 40; i++) {
+            const s = document.createElement("span");
+            const size = 2 + Math.random() * 4;
+            s.style.width = size + "px";
+            s.style.height = size + "px";
+            s.style.left = Math.random() * 100 + "%";
+            s.style.animationDuration = 6 + Math.random() * 8 + "s";
+            s.style.animationDelay = -Math.random() * 10 + "s";
+            embers.appendChild(s);
+        }
+
+        // ----- Profile popup -----
+        const overlay = document.getElementById("overlay");
+        const pImg  = document.getElementById("pImg");
+        const pName = document.getElementById("pName");
+        const pRole = document.getElementById("pRole");
+        const pInfo = document.getElementById("pInfo");
+
+        document.querySelectorAll("td img").forEach(function (img) {
+            img.addEventListener("click", function () {
+                pImg.src = img.src;
+                pImg.alt = img.dataset.name;
+                pName.textContent = img.dataset.name;
+                pRole.textContent = "Role: " + img.dataset.role;
+                pInfo.textContent = img.dataset.info;
+                overlay.classList.add("show");
+            });
+        });
+
+        function closeProfile() {
+            overlay.classList.remove("show");
+        }
+
+        document.getElementById("closeBtn").addEventListener("click", closeProfile);
+        overlay.addEventListener("click", function (e) {
+            if (e.target === overlay) closeProfile();
+        });
+        document.addEventListener("keydown", function (e) {
+            if (e.key === "Escape") closeProfile();
+        });
+    </script>
+</body>
+</html>

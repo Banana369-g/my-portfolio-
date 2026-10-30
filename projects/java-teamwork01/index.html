@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Teamwork01 · Java Console Apps</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@500;700&display=swap">
+<link rel="stylesheet" href="terminal.css">
+</head>
+<body>
+<header class="head">
+  <p class="eyebrow">Teamwork01 · Java</p>
+  <h1>Two console apps, <em>running in your browser</em></h1>
+  <p class="lead">A turn-based battle game and a bank account tracker I wrote in Java. They run in a terminal, so here they're ported line by line to JavaScript. Type into the console, or click the number buttons.</p>
+</header>
+
+<main class="wrap">
+  <div class="apps" role="tablist" aria-label="Choose a program">
+    <button type="button" role="tab" data-app="battle" aria-selected="true">
+      <b>Battle Game</b><span>Project1.java · 149 lines</span>
+    </button>
+    <button type="button" role="tab" data-app="bank" aria-selected="false">
+      <b>Bank Tracker</b><span>Teamwork02.java · 497 lines</span>
+    </button>
+  </div>
+
+  <section class="info" data-info="battle">
+    <ul class="facts">
+      <li><b>Turns</b> Attack, defend or heal</li>
+      <li><b>Random</b> 10–20 damage, 20% critical hit (×2)</li>
+      <li><b>Rules</b> Defending halves the next hit · 3 heals each</li>
+      <li><b>Sound</b> MP3 effects with the JLayer library</li>
+    </ul>
+    <div class="hp" id="hp" hidden>
+      <div class="fighter"><span class="name" id="n0"></span><div class="bar"><i id="b0"></i></div><span class="num" id="h0"></span></div>
+      <div class="vs">VS</div>
+      <div class="fighter right"><span class="name" id="n1"></span><div class="bar"><i id="b1"></i></div><span class="num" id="h1"></span></div>
+    </div>
+  </section>
+
+  <section class="info" data-info="bank" hidden>
+    <ul class="facts">
+      <li><b>Accounts</b> Log in by name; new names get an account</li>
+      <li><b>Money</b> Income and expenses, with a balance check</li>
+      <li><b>Saving</b> Balances in account.csv (here: memory only)</li>
+      <li><b>Support</b> Tickets like TCK-0001, written as emails</li>
+    </ul>
+  </section>
+
+  <div class="term">
+    <div class="term-bar">
+      <span class="dots"><i></i><i></i><i></i></span>
+      <span class="term-title" id="term-title">java Project1</span>
+      <button type="button" class="restart" id="restart">↻ Restart</button>
+    </div>
+    <div class="out" id="out" aria-live="polite"></div>
+    <div class="chips" id="chips"></div>
+    <form class="line" id="line" autocomplete="off">
+      <span class="prompt" id="prompt"></span>
+      <input id="in" aria-label="Console input" spellcheck="false">
+    </form>
+  </div>
+
+  <p class="foot">The Java code is under <code>src/</code>. This page and <code>web-demo.js</code> are a browser port made for the portfolio.</p>
+</main>
+
+<script src="web-demo.js"></script>
+</body>
+</html>

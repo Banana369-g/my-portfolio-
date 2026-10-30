@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 09 · Java Classes &amp; Objects</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@500;700&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="head">
+  <p class="eyebrow">Lesson 09 · Java</p>
+  <h1>Classes &amp; objects, <em>one idea at a time</em></h1>
+  <p class="lead">Four small programs from my Java class about object-oriented basics: constructors, <code>this</code>, private fields with getters and setters, and objects that contain other objects. Click a card to run its <code>main</code> method.</p>
+</header>
+
+<main class="wrap">
+  <div class="classes">
+    <button class="cls" type="button" data-run="Owner" aria-pressed="false">
+      <span class="tag">Constructor · this</span>
+      <h2>Owner → dog</h2>
+      <p>Makes a dog with four values and asks it to introduce itself.</p>
+<pre class="uml"><b>dog</b>
+- type, color : String
+- height, weight : double
+<i>+ introduce()</i>
+<i>+ getters / setters</i></pre>
+      <span class="run">java lesson09.Owner <span>▶ Run</span></span>
+    </button>
+
+    <button class="cls" type="button" data-run="teacher" aria-pressed="false">
+      <span class="tag">Encapsulation</span>
+      <h2>teacher → student</h2>
+      <p>Private name and age, read through methods. Also prints the name’s length.</p>
+<pre class="uml"><b>student</b>
+- name : String
+- age : int
+<i>+ introduce()</i>
+<i>+ getName() / setAge()…</i></pre>
+      <span class="run">java lesson09.teacher <span>▶ Run</span></span>
+    </button>
+
+    <button class="cls" type="button" data-run="carowner" aria-pressed="false">
+      <span class="tag">Composition · has-a</span>
+      <h2>Car has an Engine</h2>
+      <p>The Engine is passed into the Car’s constructor. start() calls engine.fire().</p>
+<pre class="uml"><b>Car</b>
+- engine : Engine
+<i>+ start()</i>  → engine.fire()
+<b>Engine</b>
+<i>+ fire()</i></pre>
+      <span class="run">java lesson09.carowner <span>▶ Run</span></span>
+    </button>
+
+    <button class="cls" type="button" data-run="Teacherr" aria-pressed="false">
+      <span class="tag">Many objects</span>
+      <h2>Teacherr → 3 Students</h2>
+      <p>One class, three objects. Each keeps its own name.</p>
+<pre class="uml"><b>Student</b>
+- name : String
+<i>+ introduce()</i>
+s1, s2, s3 = new Student(…)</pre>
+      <span class="run">java lesson09.Teacherr <span>▶ Run</span></span>
+    </button>
+  </div>
+
+  <div class="term">
+    <div class="term-bar">
+      <span class="dots"><i></i><i></i><i></i></span>
+      <span class="term-title" id="term-title">lesson09</span>
+      <button type="button" class="restart" id="clear">Clear</button>
+    </div>
+    <div class="out" id="out" aria-live="polite"></div>
+  </div>
+
+  <p class="foot">The Java code is in <code>src/lesson09/</code>. The output above is what each <code>main</code> method prints.</p>
+</main>
+
+<script>
+// The text each main method prints (System.out.println), typed out line by line.
+const OUTPUT = {
+  Owner: ['Dog Type = sudip', 'Dog color = black', 'Dog height = 15.6C.M', 'Dog weight = 17.8K.G'],
+  teacher: ["I'm yukesh", "I'm 20 year old", "I'm 6"],
+  carowner: ['🚒💨💨💨💨💨💨'],
+  Teacherr: ['my name is yukesh', 'my name is bug', 'my name is sudip'],
+};
+const out = document.getElementById('out');
+const cards = document.querySelectorAll('[data-run]');
+let run = 0;
+
+function line(text, cls) {
+  const d = document.createElement('div');
+  d.textContent = text;
+  if (cls) d.className = cls;
+  out.appendChild(d);
+  out.scrollTop = out.scrollHeight;
+  return d;
+}
+const wait = (ms) => new Promise((r) => setTimeout(r, ms));
+
+async function runMain(name) {
+  const id = ++run;
+  cards.forEach((c) => c.setAttribute('aria-pressed', String(c.dataset.run === name)));
+  document.getElementById('term-title').textContent = 'java lesson09.' + name;
+  if (out.children.length) line('');
+  line('$ java lesson09.' + name, 'echo');
+  for (const text of OUTPUT[name]) {
+    await wait(260);
+    if (id !== run) return;
+    line(text, 'good');
+  }
+  await wait(200);
+  if (id === run) line('Process finished with exit code 0', 'dim');
+}
+
+function idle() {
+  out.innerHTML = '';
+  line('// Choose a class above to run it', 'dim');
+  const d = line('$ ', 'echo');
+  const c = document.createElement('span');
+  c.className = 'cursor';
+  d.appendChild(c);
+}
+
+cards.forEach((c) => c.addEventListener('click', () => {
+  if (out.querySelector('.cursor')) out.innerHTML = '';
+  runMain(c.dataset.run);
+}));
+document.getElementById('clear').addEventListener('click', () => { run++; cards.forEach((c) => c.setAttribute('aria-pressed', 'false')); idle(); });
+idle();
+</script>
+</body>
+</html>
