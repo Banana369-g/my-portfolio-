@@ -16,17 +16,12 @@
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
-<!-- Language switch without JavaScript: these two radio buttons are hidden,
-     and the EN / 日本語 labels in the header are the real buttons.
-     To open the site in Japanese first, move "checked" to the l-ja input. -->
 <input class="sr" type="radio" name="lang" id="l-en" aria-label="English" checked>
 <input class="sr" type="radio" name="lang" id="l-ja" aria-label="日本語">
 
-<!-- Moving background: soft red light, a faint grid and film grain -->
 <div class="bg" aria-hidden="true"><i class="blob b1"></i><i class="blob b2"></i><i class="blob b3"></i></div>
 <div class="progress" id="progress" aria-hidden="true"></div>
 
-<!-- Only visible in edit mode: open index.html?edit -->
 <div class="editbar" id="editbar" hidden>
   <div class="wrap editbar-in">
     <p><b>Edit mode</b> · <span lang="en">Uploads are saved in this browser only. To publish them, see README.txt.</span><span lang="ja">アップロードはこのブラウザだけに保存されます。公開方法はREADME.txtを見てください。</span></p>
@@ -57,7 +52,6 @@
 
 <main id="main">
 
-<!-- Hero -->
 <section class="hero" id="home">
   <div class="wrap hero-grid">
     <div class="hero-text">
@@ -92,7 +86,6 @@
   <a class="scroll-hint" href="#about" aria-label="Scroll to About"><span></span></a>
 </section>
 
-<!-- Skills ticker -->
 <div class="ticker" aria-hidden="true">
   <div class="ticker-track">
     <span>Java</span><span>JavaScript</span><span>HTML</span><span>CSS</span><span>Bootstrap</span><span>SQL</span><span>SQLite</span><span>JDBC</span><span>Git</span><span>Linux</span><span>日本語 N3</span>
@@ -100,7 +93,6 @@
   </div>
 </div>
 
-<!-- About -->
 <section id="about">
   <div class="wrap about-grid">
     <div class="sec-head reveal">
@@ -122,7 +114,6 @@
   </div>
 </section>
 
-<!-- Skills -->
 <section id="skills">
   <div class="wrap">
     <div class="sec-head reveal">
@@ -144,7 +135,6 @@
   </div>
 </section>
 
-<!-- Projects: the cards are made by script.js from projects-data.js -->
 <section id="projects">
   <div class="wrap">
     <div class="sec-head reveal">
@@ -188,7 +178,6 @@
   </div>
 </section>
 
-<!-- Learning journey -->
 <section id="journey">
   <div class="wrap">
     <div class="sec-head reveal">
@@ -204,7 +193,6 @@
   </div>
 </section>
 
-<!-- Strengths -->
 <section id="strengths">
   <div class="wrap">
     <div class="sec-head reveal">
@@ -225,7 +213,6 @@
   </div>
 </section>
 
-<!-- Education and language -->
 <section id="education">
   <div class="wrap">
     <div class="sec-head reveal">
@@ -235,14 +222,10 @@
     <div class="grid two">
       <div class="card glass reveal"><span class="icon"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i></span><h3><span lang="en">Education</span><span lang="ja">学歴</span></h3>
         <p lang="en">System Engineering, vocational IT school in Fukuoka, Japan (first year).</p>
-        <p lang="ja">福岡の専門学校 システムエンジニアリング(1年生)。</p>
-        <p class="todo" lang="en">[Add your school name and dates]</p>
-        <p class="todo" lang="ja">[学校名と期間を追加してください]</p></div>
+        <p lang="ja">福岡の専門学校 システムエンジニアリング(1年生)。</p></div>
       <div class="card glass reveal"><span class="icon"><i class="fa-solid fa-language" aria-hidden="true"></i></span><h3><span lang="en">Languages</span><span lang="ja">言語</span></h3>
         <p lang="en">Japanese: JLPT N3 passed, studying for N2.</p>
-        <p lang="ja">日本語: JLPT N3合格、N2に向けて勉強中。</p>
-        <p class="todo" lang="en">[Add other languages you can really use, with an honest level]</p>
-        <p class="todo" lang="ja">[実際に使える他の言語と、正直なレベルを追加してください]</p></div>
+        <p lang="ja">日本語: JLPT N3合格、N2に向けて勉強中。</p></div>
     </div>
   </div>
 </section>
@@ -251,7 +234,6 @@
 
 <footer id="contact">
   <div class="wrap">
-    <!-- Contact icons: links come from links.js (empty ones show dimmed) -->
     <ul class="social footer-social" aria-label="Contact me">
       <li><a class="email" href="mailto:yukeshm362@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope" aria-hidden="true"></i></a></li>
       <li><a data-link="github" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a></li>
@@ -265,10 +247,8 @@
   </div>
 </footer>
 
-<!-- Back to top: script.js shows it after you scroll down -->
 <a class="to-top" id="to-top" href="#home" aria-label="Back to top" title="Back to top"><i class="fa-solid fa-arrow-up" aria-hidden="true"></i></a>
 
-<!-- Project viewer: live preview + code -->
 <dialog class="viewer" id="viewer" aria-labelledby="viewer-title">
   <div class="viewer-head">
     <h2 id="viewer-title"></h2>
@@ -294,7 +274,6 @@
   </div>
 </dialog>
 
-<!-- Upload form (edit mode) -->
 <dialog class="upload" id="upload" aria-labelledby="upload-title">
   <form id="upload-form" method="dialog">
     <h2 id="upload-title"><span lang="en">Upload a web project</span><span lang="ja">Web制作物をアップロード</span></h2>
